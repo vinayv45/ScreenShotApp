@@ -96,7 +96,9 @@ public class SharedData {
         tessBaseAPI.init(tessdataPath, "eng");
         tessBaseAPI.setImage(bitmap);
         String recognizedText = tessBaseAPI.getUTF8Text();
-        Log.d("Vinay 7", recognizedText);
+        tessBaseAPI.setPageSegMode(TessBaseAPI.PageSegMode.PSM_AUTO_OSD);
+        String hocrResult = tessBaseAPI.getHOCRText(0);
+        Log.d("Vinay 7", hocrResult);
         tessBaseAPI.end();
 
         try {
